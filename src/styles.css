@@ -19,6 +19,8 @@
  */
 
 @theme inline {
+  --font-display: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +28,18 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --color-wimo-blue: var(--wimo-blue);
+  --color-wimo-blue-soft: var(--wimo-blue-soft);
+  --color-wimo-mint: var(--wimo-mint);
+  --color-wimo-turquoise: var(--wimo-turquoise);
+  --color-wimo-purple: var(--wimo-purple);
+  --color-wimo-lilac: var(--wimo-lilac);
+  --color-wimo-yellow: var(--wimo-yellow);
+  --color-wimo-sky: var(--wimo-sky);
+  --color-wimo-pink: var(--wimo-pink);
+  --color-wimo-lilac-bg: var(--wimo-lilac-bg);
+  --color-wimo-blue-bg: var(--wimo-blue-bg);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
