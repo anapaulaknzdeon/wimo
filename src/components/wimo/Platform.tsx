@@ -116,7 +116,7 @@ export function Platform() {
                           whileInView={{ height: `${h}%` }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.07, duration: 0.6 }}
-                          className="w-full rounded-full gradient-fresh"
+                          className="w-full rounded-t-xl gradient-fresh"
                         />
                       ))}
                     </div>

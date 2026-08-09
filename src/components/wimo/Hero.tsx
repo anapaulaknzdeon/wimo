@@ -182,7 +182,7 @@ function PhoneMock() {
           {[40, 65, 50, 80, 60, 90, 75].map((h, i) => (
             <span
               key={i}
-              className="w-full rounded-full gradient-fresh"
+              className="w-full rounded-t-md gradient-fresh"
               style={{ height: `${h * 0.28}px` }}
             />
           ))}
