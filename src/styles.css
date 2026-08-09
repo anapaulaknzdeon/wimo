@@ -76,7 +76,32 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1.5rem;
+
+  /* WIMO brand palette */
+  --wimo-blue: oklch(0.62 0.19 255);
+  --wimo-blue-soft: oklch(0.74 0.12 250);
+  --wimo-mint: oklch(0.84 0.11 165);
+  --wimo-turquoise: oklch(0.78 0.12 190);
+  --wimo-purple: oklch(0.62 0.19 300);
+  --wimo-lilac: oklch(0.84 0.08 300);
+  --wimo-yellow: oklch(0.93 0.1 95);
+  --wimo-sky: oklch(0.9 0.06 235);
+  --wimo-pink: oklch(0.94 0.04 350);
+  --wimo-lilac-bg: oklch(0.975 0.012 300);
+  --wimo-blue-bg: oklch(0.975 0.014 240);
+
+  --gradient-brand: linear-gradient(120deg, var(--wimo-blue), var(--wimo-purple));
+  --gradient-fresh: linear-gradient(120deg, var(--wimo-turquoise), var(--wimo-blue));
+  --gradient-soft: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    var(--wimo-lilac-bg) 45%,
+    var(--wimo-blue-bg) 100%
+  );
+  --shadow-soft: 0 18px 40px -20px oklch(0.62 0.19 300 / 0.28);
+  --shadow-float: 0 30px 60px -28px oklch(0.62 0.19 255 / 0.35);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
