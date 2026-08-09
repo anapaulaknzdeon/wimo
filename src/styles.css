@@ -19,6 +19,8 @@
  */
 
 @theme inline {
+  --font-display: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +28,18 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --color-wimo-blue: var(--wimo-blue);
+  --color-wimo-blue-soft: var(--wimo-blue-soft);
+  --color-wimo-mint: var(--wimo-mint);
+  --color-wimo-turquoise: var(--wimo-turquoise);
+  --color-wimo-purple: var(--wimo-purple);
+  --color-wimo-lilac: var(--wimo-lilac);
+  --color-wimo-yellow: var(--wimo-yellow);
+  --color-wimo-sky: var(--wimo-sky);
+  --color-wimo-pink: var(--wimo-pink);
+  --color-wimo-lilac-bg: var(--wimo-lilac-bg);
+  --color-wimo-blue-bg: var(--wimo-blue-bg);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -62,7 +76,32 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1.5rem;
+
+  /* WIMO brand palette */
+  --wimo-blue: oklch(0.62 0.19 255);
+  --wimo-blue-soft: oklch(0.74 0.12 250);
+  --wimo-mint: oklch(0.84 0.11 165);
+  --wimo-turquoise: oklch(0.78 0.12 190);
+  --wimo-purple: oklch(0.62 0.19 300);
+  --wimo-lilac: oklch(0.84 0.08 300);
+  --wimo-yellow: oklch(0.93 0.1 95);
+  --wimo-sky: oklch(0.9 0.06 235);
+  --wimo-pink: oklch(0.94 0.04 350);
+  --wimo-lilac-bg: oklch(0.975 0.012 300);
+  --wimo-blue-bg: oklch(0.975 0.014 240);
+
+  --gradient-brand: linear-gradient(120deg, var(--wimo-blue), var(--wimo-purple));
+  --gradient-fresh: linear-gradient(120deg, var(--wimo-turquoise), var(--wimo-blue));
+  --gradient-soft: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    var(--wimo-lilac-bg) 45%,
+    var(--wimo-blue-bg) 100%
+  );
+  --shadow-soft: 0 18px 40px -20px oklch(0.62 0.19 300 / 0.28);
+  --shadow-float: 0 30px 60px -28px oklch(0.62 0.19 255 / 0.35);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -140,5 +179,82 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+@utility gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+@utility gradient-fresh {
+  background-image: var(--gradient-fresh);
+}
+
+@utility gradient-soft {
+  background-image: var(--gradient-soft);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-float {
+  box-shadow: var(--shadow-float);
+}
+
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, white 78%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--wimo-lilac) 35%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes wimo-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes wimo-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.015);
+  }
+}
+
+@utility animate-float {
+  animation: wimo-float 6s ease-in-out infinite;
+}
+
+@utility animate-breathe {
+  animation: wimo-breathe 5s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
