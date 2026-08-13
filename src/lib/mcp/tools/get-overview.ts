@@ -1,4 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
+import { z } from "zod";
 
 const OVERVIEW = {
   name: "WIMO",
@@ -22,9 +23,10 @@ export default defineTool({
   description:
     "Retorna a descrição institucional da WIMO: proposta, público atendido e pilares da plataforma.",
   inputSchema: {},
+  outputSchema: { overview: z.record(z.string(), z.unknown()) },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
     content: [{ type: "text", text: JSON.stringify(OVERVIEW, null, 2) }],
-    structuredContent: OVERVIEW,
+    structuredContent: { overview: OVERVIEW },
   }),
 });

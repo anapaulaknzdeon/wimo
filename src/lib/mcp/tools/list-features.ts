@@ -17,6 +17,9 @@ export default defineTool({
   inputSchema: {
     query: z.string().trim().optional().describe("Termo opcional para filtrar funcionalidades."),
   },
+  outputSchema: {
+    items: z.array(z.object({ title: z.string(), description: z.string() })),
+  },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ query }) => {
     const q = query?.toLowerCase();
