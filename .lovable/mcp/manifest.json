@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.2",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "wimo-your-autonomy-journey",
+      "version": "0.1.0",
+      "title": "WIMO: Your Autonomy Journey"
+    },
+    "tools": [
+      {
+        "name": "get_wimo_overview",
+        "title": "Visão geral da WIMO",
+        "description": "Retorna a descrição institucional da WIMO: proposta, público atendido e pilares da plataforma.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_wimo_features",
+        "title": "Listar funcionalidades da WIMO",
+        "description": "Lista as funcionalidades da plataforma WIMO, com filtro opcional por termo de busca.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Termo opcional para filtrar funcionalidades.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
