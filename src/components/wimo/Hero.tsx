@@ -9,17 +9,6 @@ const chips = [
   "Mais autonomia",
 ];
 
-const floaties = [
-  { emoji: "📅", top: "4%", left: "2%", depth: 26, delay: 0 },
-  { emoji: "✅", top: "22%", left: "78%", depth: 34, delay: 0.4 },
-  { emoji: "📊", top: "60%", left: "0%", depth: 22, delay: 0.8 },
-  { emoji: "💜", top: "76%", left: "70%", depth: 30, delay: 1.2 },
-  { emoji: "💬", top: "44%", left: "86%", depth: 18, delay: 0.6 },
-  { emoji: "⭐", top: "10%", left: "58%", depth: 40, delay: 1.5 },
-  { emoji: "☁️", top: "84%", left: "18%", depth: 16, delay: 0.2 },
-  { emoji: "🔔", top: "34%", left: "-4%", depth: 36, delay: 1 },
-];
-
 export function Hero() {
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
 
@@ -37,49 +26,60 @@ export function Hero() {
   return (
     <section
       id="topo"
-      className="relative overflow-hidden gradient-soft pt-32 pb-20 lg:min-h-screen lg:pt-36"
+      className="relative overflow-hidden gradient-soft pt-32 pb-24 lg:min-h-screen lg:pt-40"
     >
-      <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-wimo-turquoise/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 top-24 h-[26rem] w-[26rem] rounded-full bg-wimo-lilac/40 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-wimo-sky/40 blur-3xl" />
+      <div className="pointer-events-none absolute -top-48 -left-40 h-[32rem] w-[32rem] rounded-full bg-wimo-blue/15 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-wimo-purple/15 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-wimo-turquoise/15 blur-[110px]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-8 lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-5 md:px-8 lg:grid-cols-2">
         <motion.div
+          className="flex flex-col items-start"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-wimo-turquoise/40 bg-white/80 px-4 py-1.5 text-[11px] font-bold tracking-[0.2em] text-wimo-blue uppercase">
-            <span className="h-2 w-2 rounded-full bg-wimo-turquoise" />
-            Tecnologia para autonomia
+          <span className="inline-flex items-center gap-2 rounded-full border border-white bg-white/70 px-4 py-2 shadow-soft backdrop-blur-md">
+            <motion.span
+              className="h-2 w-2 rounded-full bg-wimo-turquoise"
+              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <span className="text-[11px] font-bold tracking-[0.18em] text-wimo-blue uppercase">
+              Tecnologia para autonomia
+            </span>
           </span>
 
-          <h1 className="mt-6 font-display text-[2.6rem] leading-[1.05] font-bold text-foreground sm:text-6xl">
-            Mais <span className="text-wimo-turquoise">autonomia</span> para viver cada dia.
+          <h1 className="mt-7 font-display text-[2.8rem] leading-[1.05] font-bold tracking-tight text-foreground sm:text-6xl xl:text-7xl">
+            Mais{" "}
+            <span className="bg-gradient-to-r from-wimo-blue via-wimo-purple to-wimo-turquoise bg-clip-text text-transparent">
+              autonomia
+            </span>{" "}
+            para viver cada dia.
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/65 sm:text-lg">
+          <p className="mt-7 max-w-lg text-base leading-relaxed text-foreground/65 sm:text-lg">
             A WIMO conecta pessoas neurodivergentes, famílias, escolas e profissionais em uma
             plataforma inteligente para organizar rotinas, compreender emoções e fortalecer a
             independência no dia a dia.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projeto"
-              className="rounded-full gradient-brand px-7 py-3.5 text-sm font-bold text-white shadow-float transition-transform duration-300 hover:scale-105"
+              className="rounded-[2rem] gradient-brand px-9 py-4 font-display text-base font-bold text-white shadow-[0_18px_40px_-12px_color-mix(in_oklab,var(--wimo-blue)_60%,transparent)] transition-all duration-300 hover:-translate-y-1"
             >
               Conhecer a WIMO
             </a>
             <a
               href="#plataforma"
-              className="rounded-full border border-wimo-blue/25 bg-white px-7 py-3.5 text-sm font-bold text-wimo-blue shadow-soft transition-transform duration-300 hover:scale-105"
+              className="rounded-[2rem] border-2 border-border bg-white px-9 py-4 font-display text-base font-bold text-foreground transition-all duration-300 hover:-translate-y-1 hover:border-wimo-blue"
             >
               Explorar a plataforma
             </a>
           </div>
 
-          <ul className="mt-9 flex flex-wrap gap-2.5">
+          <ul className="mt-10 flex flex-wrap gap-2.5">
             {chips.map((c, i) => (
               <motion.li
                 key={c}
@@ -94,53 +94,97 @@ export function Hero() {
           </ul>
         </motion.div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-xl">
-          {floaties.map((f) => (
-            <motion.div
-              key={f.emoji}
-              className="absolute grid h-14 w-14 place-items-center rounded-3xl bg-white/85 text-2xl shadow-soft backdrop-blur-md sm:h-16 sm:w-16"
-              style={{ top: f.top, left: f.left }}
-              animate={{
-                x: pointer.x * f.depth,
-                y: pointer.y * f.depth,
-              }}
-              transition={{ type: "spring", stiffness: 60, damping: 18 }}
-            >
-              <motion.span
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4 + f.depth / 20, repeat: Infinity, delay: f.delay }}
-              >
-                {f.emoji}
-              </motion.span>
-            </motion.div>
-          ))}
-
+        <div className="relative mx-auto flex w-full max-w-xl items-center justify-center py-10 lg:py-0">
+          {/* anéis decorativos */}
           <motion.div
-            className="absolute inset-8 rounded-[3rem] bg-white/60 backdrop-blur-xl shadow-float"
-            animate={{ x: pointer.x * -14, y: pointer.y * -14 }}
-            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+            className="pointer-events-none absolute top-1/2 left-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-wimo-blue/15"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="pointer-events-none absolute top-1/2 left-1/2 h-[88%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-wimo-purple/15"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 65, repeat: Infinity, ease: "linear" }}
           />
 
+          {/* celular */}
           <motion.div
-            className="absolute top-1/2 left-1/2 w-[46%] -translate-x-[92%] -translate-y-1/2"
-            animate={{ x: pointer.x * 18, y: pointer.y * 18 }}
-            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+            className="relative z-10 translate-x-6 sm:translate-x-10"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <PhoneMock />
+            <motion.div
+              animate={{ x: pointer.x * -16, y: pointer.y * -16 }}
+              transition={{ type: "spring", stiffness: 50, damping: 20 }}
+            >
+              <PhoneMock />
+            </motion.div>
+
+            {/* cards de vidro */}
+            <motion.div
+              className="absolute -top-6 -right-8 z-20 rounded-3xl border border-white bg-white/85 px-4 py-3 shadow-float backdrop-blur-xl sm:-right-14"
+              animate={{ x: pointer.x * 30, y: [0, -10, 0] }}
+              transition={{
+                x: { type: "spring", stiffness: 50, damping: 20 },
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-2xl bg-wimo-turquoise/20 text-lg">
+                  ✅
+                </span>
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.14em] text-foreground/45 uppercase">
+                    Rotina do dia
+                  </p>
+                  <p className="font-display text-sm font-bold text-foreground">
+                    3 de 5 concluídas
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-16 -right-6 z-20 rounded-3xl border border-white bg-white/85 px-4 py-3 shadow-float backdrop-blur-xl sm:-right-12"
+              animate={{ x: pointer.x * 22, y: [0, -12, 0] }}
+              transition={{
+                x: { type: "spring", stiffness: 50, damping: 20 },
+                y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-2xl bg-wimo-purple/20 text-lg">
+                  ⭐
+                </span>
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.14em] text-foreground/45 uppercase">
+                    Conquista
+                  </p>
+                  <p className="font-display text-sm font-bold text-foreground">Nível 5</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
+          {/* mascote — protagonista */}
           <motion.img
             src={wimoWave}
             alt="Mascote WIMO acenando"
             width={912}
             height={1104}
-            className="absolute bottom-2 left-1/2 w-[52%] -translate-x-[2%] drop-shadow-[0_24px_35px_rgba(90,70,160,0.25)]"
+            className="absolute bottom-0 -left-2 z-30 w-[54%] max-w-[19rem] drop-shadow-[0_28px_45px_color-mix(in_oklab,var(--wimo-purple)_30%,transparent)] sm:-left-6"
+            initial={{ opacity: 0, y: 40, scale: 0.92 }}
             animate={{
+              opacity: 1,
+              scale: 1,
               x: pointer.x * 26,
-              y: [0, -12, 0],
-              rotate: [0, 1.5, 0],
+              y: [0, -14, 0],
+              rotate: [0, 1.8, 0],
             }}
             transition={{
+              opacity: { duration: 0.8, delay: 0.3 },
+              scale: { duration: 0.8, delay: 0.3 },
               x: { type: "spring", stiffness: 50, damping: 20 },
               y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
               rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
@@ -154,38 +198,41 @@ export function Hero() {
 
 function PhoneMock() {
   return (
-    <div className="rounded-[2rem] border-4 border-white bg-white p-3 shadow-float">
-      <div className="rounded-[1.4rem] bg-wimo-blue-bg p-3">
-        <p className="font-display text-xs font-bold text-wimo-blue">Bom dia! 👋</p>
-        <p className="mt-0.5 text-[10px] text-foreground/55">Como você está hoje?</p>
-        <div className="mt-2 flex justify-between text-sm">
-          {["😊", "🙂", "😐", "😔", "😣"].map((e) => (
-            <span key={e} className="grid h-6 w-6 place-items-center rounded-full bg-white">
-              {e}
-            </span>
-          ))}
-        </div>
-        <div className="mt-3 space-y-1.5">
-          {["Tomar café", "Aula de arte", "Diário do dia"].map((t, i) => (
-            <div
-              key={t}
-              className="flex items-center gap-2 rounded-xl bg-white px-2 py-1.5 text-[10px] font-semibold text-foreground/70"
-            >
+    <div className="w-56 rounded-[2.6rem] border-4 border-border bg-foreground p-2.5 shadow-float sm:w-64">
+      <div className="relative overflow-hidden rounded-[2rem] bg-white p-3">
+        <div className="absolute top-0 left-1/2 h-5 w-20 -translate-x-1/2 rounded-b-2xl bg-foreground" />
+        <div className="mt-5 rounded-[1.4rem] bg-wimo-blue-bg p-3">
+          <p className="font-display text-xs font-bold text-wimo-blue">Bom dia! 👋</p>
+          <p className="mt-0.5 text-[10px] text-foreground/55">Como você está hoje?</p>
+          <div className="mt-2 flex justify-between text-sm">
+            {["😊", "🙂", "😐", "😔", "😣"].map((e) => (
+              <span key={e} className="grid h-6 w-6 place-items-center rounded-full bg-white">
+                {e}
+              </span>
+            ))}
+          </div>
+          <div className="mt-3 space-y-1.5">
+            {["Tomar café", "Aula de arte", "Diário do dia"].map((t, i) => (
+              <div
+                key={t}
+                className="flex items-center gap-2 rounded-xl bg-white px-2 py-1.5 text-[10px] font-semibold text-foreground/70"
+              >
+                <span
+                  className={`h-3 w-3 rounded-md ${i === 0 ? "bg-wimo-turquoise" : "bg-wimo-lilac"}`}
+                />
+                {t}
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 flex items-end gap-1 rounded-xl bg-white p-2">
+            {[40, 65, 50, 80, 60, 90, 75].map((h, i) => (
               <span
-                className={`h-3 w-3 rounded-md ${i === 0 ? "bg-wimo-turquoise" : "bg-wimo-lilac"}`}
+                key={i}
+                className="w-full rounded-t-md gradient-fresh"
+                style={{ height: `${h * 0.28}px` }}
               />
-              {t}
-            </div>
-          ))}
-        </div>
-        <div className="mt-3 flex items-end gap-1 rounded-xl bg-white p-2">
-          {[40, 65, 50, 80, 60, 90, 75].map((h, i) => (
-            <span
-              key={i}
-              className="w-full rounded-t-md gradient-fresh"
-              style={{ height: `${h * 0.28}px` }}
-            />
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
