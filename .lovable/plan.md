@@ -14,7 +14,7 @@ Redesenho da seção hero mantendo o conteúdo atual (mensagem, botões, mascote
 **Coluna direita (visual)**
 - Mockup de celular em moldura escura com tela arredondada, exibindo o mini-app atual (saudação, seletor de humor, tarefas, gráfico de humor).
 - Dois cards de vidro flutuando fora da moldura: "Rotina do dia — 3 de 5 concluídas" e "Conquista — Nível 5", com ícone colorido e animação suave de flutuação.
-- Mascote (dragão acenando) posicionado ao lado do celular, à frente da cena, com sombra suave e flutuação lenta.
+- Mascote oficial da WIMO (o dragãozinho mint acenando, `wimo-wave.png`) em destaque: grande, à frente do celular e de todos os elementos da cena, com sombra colorida suave e flutuação lenta contínua. Ele é o protagonista do lado direito — o celular e os cards ficam atrás, como apoio.
 - Dois anéis pontilhados girando muito devagar atrás do conjunto, dando profundidade.
 - Manchas de gradiente desfocadas (azul e roxo) ao fundo, mais suaves que as atuais.
 
